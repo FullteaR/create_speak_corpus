@@ -3,6 +3,7 @@ RUN apt update && apt upgrade -y && apt install -y git libsndfile1
 RUN pip install --upgrade pip setuptools
 RUN pip install jupyter pyannote.audio
 RUN pip install --upgrade torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+RUN pip install git+https://github.com/openai/whisper.git 
 
 RUN mkdir -p /root/.jupyter && touch /root/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py && \
