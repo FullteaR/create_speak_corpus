@@ -1,0 +1,17 @@
+version: '3'
+services:
+        speaker:
+               build:
+                       context: .
+               image: frt/speaker
+               container_name: speaker
+               ports:
+                       - 127.0.0.1:28888:8888
+               volumes:
+                       - ./src:/mnt
+                       - ./audio:/audio
+               #runtime: nvidia
+               environment:
+                        - HF_ACCESS_TOKEN
+                        - NVIDIA_VISIBLE_DEVICES=1
+                        - NVIDIA_DRIVER_CAPABILITIES=all
